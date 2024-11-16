@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutzerliste erweitern</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<header>
+    <h2>Nutzer hinzufügen</h2>
+</header>
+
+<section>
+    <form action="/add-users" method="POST">
+        <label for="names">Namen mit Komma getrennt:</label><br>
+        <input
+                type="text"
+                id="names"
+                name="names"
+                placeholder="Max,Moritz,..."
+                required
+        ><br>
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+<footer>
+    <p>Gib die Namen der Personen an, die du hinzufügen möchtest</p>
+</footer>
+
+</body>
+</html>

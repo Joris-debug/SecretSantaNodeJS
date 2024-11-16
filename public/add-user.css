@@ -1,0 +1,94 @@
+/* General Reset Rules */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures consistent box-sizing */
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Set default font */
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text color for readability */
+    line-height: 1.6; /* Increase line height for better readability */
+    padding: 20px; /* Add some padding around the body */
+}
+
+/* Header Styles */
+header {
+    text-align: center; /* Center the header text */
+    margin-bottom: 30px; /* Add space below the header */
+}
+
+/* Form Container */
+section {
+    background-color: #fff; /* White background for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the form */
+    max-width: 400px; /* Limit the form width */
+    margin: 0 auto; /* Center the form on the page */
+}
+
+/* Form Heading */
+h2 {
+    color: #007BFF; /* Blue color for the heading */
+    font-size: 2em; /* Larger text size for the heading */
+    margin-bottom: 15px; /* Add space below the heading */
+}
+
+/* Label and Input Styles */
+label {
+    display: block; /* Make label elements block-level */
+    font-weight: bold; /* Make the label text bold */
+    margin-bottom: 5px; /* Add space below the label */
+    color: #555; /* Slightly darker grey for labels */
+}
+
+/* Text Input Styles */
+input[type="text"] {
+    width: 100%; /* Make input take full width of the form */
+    padding: 10px; /* Add padding inside the input */
+    margin-bottom: 15px; /* Add space below the input */
+    border: 2px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1em; /* Default font size */
+    transition: border-color 0.3s; /* Smooth transition when input is focused */
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove the default outline on focus */
+}
+
+/* Submit Button Styles */
+input[type="submit"] {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Add padding inside the button */
+    background-color: #007BFF; /* Blue background for the button */
+    color: white; /* White text color */
+    border: none; /* Remove the default border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1em; /* Default font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center the footer text */
+    margin-top: 30px; /* Add space above the footer */
+    font-size: 1.1em; /* Slightly larger font size */
+    color: #555; /* Dark grey color for footer text */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    section {
+        width: 90%; /* Make the form take 90% of the width on small screens */
+    }
+}
