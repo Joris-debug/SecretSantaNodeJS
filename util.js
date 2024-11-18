@@ -11,11 +11,11 @@ function assignUsers(namesArray) {
             console.log("Aborting operation..");
             return;
         }
-    });
 
-    for(let i = 0; i < n; i++) {
-        addUser(namesArray[i], assignArray[i] + 1) // SQL keys start at 1 and not at 0
-    }
+        for(let i = 0; i < n; i++) {
+            addUser(namesArray[i], assignArray[i] + 1) // SQL keys start at 1 and not at 0
+        }
+    });
 }
 
 function createArray(n) {

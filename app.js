@@ -29,17 +29,15 @@ app.get('/users', (req, res) => {
   });
 });
 
-//TODO: Add Administrator auth.
 app.get('/add-users', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'add-users.html'));
 });
 
-//TODO: Convert names to lowercase
 app.post('/add-users', (req, res) => {
     const nameString = req.body.names.toLowerCase();
     if(req.body.passwd != process.env.ADMIN_PASSWD) {
-	res.status(401).send("Wrong password");
-	return;
+	    res.status(401).send("Wrong password");
+	    return;
     }
     const namesArray = nameString.split(',').map(name => name.trim());
     assignUsers(namesArray)
@@ -52,12 +50,10 @@ app.post('/add-users', (req, res) => {
     `);
 });
 
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-//TODO: Convert name to lowercase
 app.post('/', (req, res) => {
     const name = req.body.fname.toLowerCase();
 

@@ -61,6 +61,22 @@ input[type="text"]:focus {
     outline: none; /* Remove the default outline on focus */
 }
 
+/* Password Input Styles */
+input[type="password"] {
+    width: 100%; /* Make input take full width of the form */
+    padding: 10px; /* Add padding inside the input */
+    margin-bottom: 15px; /* Add space below the input */
+    border: 2px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1em; /* Default font size */
+    transition: border-color 0.3s; /* Smooth transition when input is focused */
+}
+
+input[type="password"]:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove the default outline on focus */
+}
+
 /* Submit Button Styles */
 input[type="submit"] {
     width: 100%; /* Full width button */

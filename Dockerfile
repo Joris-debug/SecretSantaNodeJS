@@ -13,8 +13,8 @@ RUN npm install --omit=dev
 # Copy the rest of the application code into the container
 COPY . .
 
-# Expose port 8080 to be able to access the app
+# Expose port 80 to be able to access the app
 EXPOSE 80
 
-# Start the Node.js application (assuming the entry point is index.js)
-CMD ["node", "app.js"]
+# Start the Node.js application (assuming the entry point is app.js)
+CMD ["node", "--env-file=.env", "app.js"]
