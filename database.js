@@ -16,13 +16,13 @@ function initDb() {
 function addUser(id, name, hasDrawn) {
     const sql = `INSERT INTO users (id, name, has_drawn, has_checked) VALUES (?, ?, ?, ?)`;
 
-    db.run(sql, [id, name, hasDrawn, false], function(err) {
-        if (err) {
-            console.error('Fehler beim Hinzufügen des Benutzers:', err.message);
-        } else {
-            console.log(`Benutzer ${name} mit ID ${id} erfolgreich hinzugefügt.`);
+    db.run(sql, [id, name, hasDrawn, false],
+        (err) => {
+            if(err) {
+                return console.error(err.message);
+            }
         }
-    });
+    );
 }
 
 function getUser(name, callback) {
