@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { assignUsers } = require('./util');
+require('dotenv').config();
 const { db, initDb, addUser, getUser, getName, setHasChecked } = require('./database');
 
 const app = express();

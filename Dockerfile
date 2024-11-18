@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 80
 
 # Start the Node.js application
-CMD ["node", "--env-file=.env", "app.js"]
+CMD ["node", "app.js"]
