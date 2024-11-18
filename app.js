@@ -37,7 +37,10 @@ app.get('/add-users', (req, res) => {
 //TODO: Convert names to lowercase
 app.post('/add-users', (req, res) => {
     const nameString = req.body.names.toLowerCase();
-
+    if(req.body.passwd != process.env.ADMIN_PASSWD) {
+	res.status(401).send("Wrong password");
+	return;
+    }
     const namesArray = nameString.split(',').map(name => name.trim());
     assignUsers(namesArray)
     res.send(`
