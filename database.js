@@ -9,21 +9,20 @@ const db = new sqlite3.Database("./database.db", sqlite3.OPEN_READWRITE, (err) =
 })
 
 function initDb() {
-    sql = `CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name UNIQUE, has_drawn, has_checked)`;
+    sql = `CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name UNIQUE, has_drawn, has_checked)`;
     db.run(sql);
 }
 
-function addUser(name, hasDrawn) {
-    sql = `INSERT INTO users (name, has_drawn, has_checked) VALUES(?, ?, ?)`;
-     db.run(
-        sql,
-        [name, hasDrawn, false],
-        (err) => {
-            if(err) {
-                return console.error(err.message);
-            }
+function addUser(id, name, hasDrawn) {
+    const sql = `INSERT INTO users (id, name, has_drawn, has_checked) VALUES (?, ?, ?, ?)`;
+
+    db.run(sql, [id, name, hasDrawn, false], function(err) {
+        if (err) {
+            console.error('Fehler beim Hinzufügen des Benutzers:', err.message);
+        } else {
+            console.log(`Benutzer ${name} mit ID ${id} erfolgreich hinzugefügt.`);
         }
-     );
+    });
 }
 
 function getUser(name, callback) {
@@ -81,25 +80,13 @@ function clearDatabase(callback) {
         (err) => {
             if (err) {
                 console.error("Error deleting table:", err.message);
-                callback(err)
+                callback(err);
             } else {
                 console.log("Table 'users' was cleared");
+                callback(null);
             }
         }
     );
-    sql = `UPDATE sqlite_sequence SET seq = 0 WHERE name = 'users'`;
-        db.run(
-            sql,
-            (err) => {
-                if (err) {
-                    console.error("Error resetting table:", err.message);
-                    callback(err)
-                } else {
-                    console.log("Table 'users' was reset");
-                    callback(null);
-                }
-            }
-        );
 }
 
 module.exports = {

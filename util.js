@@ -13,7 +13,7 @@ function assignUsers(namesArray) {
         }
 
         for(let i = 0; i < n; i++) {
-            addUser(namesArray[i], assignArray[i] + 1) // SQL keys start at 1 and not at 0
+            addUser(i, namesArray[i], assignArray[i]);
         }
     });
 }
@@ -36,7 +36,7 @@ function shuffleArray(array) {
             array[i] = temp;
         }
         selfAssignExists = false
-        for(let i = 0; i < array.length - 1; i++) {
+        for(let i = 0; i < array.length; i++) {
             if(array[i] == i) {
                 selfAssignExists = true
                 break
