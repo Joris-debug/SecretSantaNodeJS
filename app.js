@@ -1,21 +1,19 @@
-const express = require('express')
+const express = require('express');
 const path = require('path');
+const { assignUsers } = require('./util');
 const { db, initDb, addUser, getUser, getName, setHasChecked } = require('./database');
-const { assignUsers } = require('./util')
 
-
-const PORT = 80
-const app = express()
-initDb()
+const app = express();
+initDb();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(PORT, function(error) {
+app.listen(process.env.PORT, function(error) {
     if(error) {
         console.log("Something went wrong", error)
     } else {
-        console.log("Server is listening on port " + PORT)
+        console.log("Server is listening on port " + process.env.PORT)
     }
 })
 

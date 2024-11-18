@@ -1,5 +1,5 @@
 # Use the official Node.js image based on Debian slim (smaller, but still compatible)
-FROM node:18-slim
+FROM node:23-bookworm-slim
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -16,5 +16,5 @@ COPY . .
 # Expose port 80 to be able to access the app
 EXPOSE 80
 
-# Start the Node.js application (assuming the entry point is app.js)
+# Start the Node.js application
 CMD ["node", "--env-file=.env", "app.js"]
