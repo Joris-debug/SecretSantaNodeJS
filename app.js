@@ -36,7 +36,7 @@ app.get('/add-users', (req, res) => {
 
 //TODO: Convert names to lowercase
 app.post('/add-users', (req, res) => {
-    const nameString = req.body.names;
+    const nameString = req.body.names.toLowerCase();
 
     const namesArray = nameString.split(',').map(name => name.trim());
     assignUsers(namesArray)
@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 
 //TODO: Convert name to lowercase
 app.post('/', (req, res) => {
-    const name = req.body.fname;
+    const name = req.body.fname.toLowerCase();
 
     getUser(name, (err, user) => {
         if (err) {

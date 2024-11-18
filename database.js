@@ -87,7 +87,7 @@ function clearDatabase(callback) {
             }
         }
     );
-    sql = `DELETE FROM sqlite_sequence WHERE name = 'users'`;
+    sql = `UPDATE sqlite_sequence SET seq = 0 WHERE name = 'users'`;
         db.run(
             sql,
             (err) => {
