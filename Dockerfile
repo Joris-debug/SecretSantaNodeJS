@@ -1,5 +1,5 @@
 # Use the official Node.js image based on Debian slim (smaller, but still compatible)
-FROM node:18-slim
+FROM node:trixie-slim
 
 # Set the working directory inside the container
 WORKDIR /app

@@ -26,23 +26,26 @@ function createArray(n) {
     return array
 }
 
-function shuffleArray(array) {
+function shuffleArray(array, namesArray, exclusionsArray) {
+    let invalid
+
     do {
         let i = array.length, j, temp
         while(--i > 0) {
             j = Math.floor(Math.random() * (i + 1))
-            temp = array[j];
-            array[j] = array[i];
-            array[i] = temp;
+            temp = array[j]
+            array[j] = array[i]
+            array[i] = temp
         }
-        selfAssignExists = false
-        for(let i = 0; i < array.length; i++) {
-            if(array[i] == i) {
-                selfAssignExists = true
-                break
-            }
-        }
-    } while(selfAssignExists)
+
+        invalid = array.some((receiver, giver) =>
+            receiver == giver ||
+            exclusionsArray.some(pair =>
+                (pair[0] == namesArray[giver] && pair[1] == namesArray[receiver]) ||
+                (pair[1] == namesArray[giver] && pair[0] == namesArray[receiver])
+            )
+        )
+    } while (invalid)
 }
 
 function getRandomInt(min, max) {

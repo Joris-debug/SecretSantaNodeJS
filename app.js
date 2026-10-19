@@ -39,12 +39,22 @@ app.post('/add-users', (req, res) => {
 	    return;
     }
     const namesArray = nameString.split(',').map(name => name.trim());
-    assignUsers(namesArray)
+
+    const exclusionsArray = (req.body.exclusions || '')
+        .split(';')
+        .filter(pair => pair.trim() !== '')
+        .map(pair => pair.split(',').map(name => name.trim()));
+
+    assignUsers(namesArray, exclusionsArray);
     res.send(`
         <h1>Namensliste erhalten</h1>
         <p>Die folgenden Namen wurden empfangen:</p>
         <ul>
             ${namesArray.map(name => `<li>${name}</li>`).join('')}
+        </ul>
+        <p>Folgende Ausschlüsse wurden empfangen:</p>
+        <ul>
+            ${exclusionsArray.map(pair => `<li>${pair.join(' und ')}</li>`).join('')}
         </ul>
     `);
 });
