@@ -38,12 +38,12 @@ app.post('/add-users', (req, res) => {
 	    res.status(401).send("Wrong password");
 	    return;
     }
-    const namesArray = nameString.split(',').map(name => name.trim());
+    const namesArray = nameString.split(',').map(name => name.trim().toLowerCase());
 
     const exclusionsArray = (req.body.exclusions || '')
         .split(';')
         .filter(pair => pair.trim() !== '')
-        .map(pair => pair.split(',').map(name => name.trim()));
+        .map(pair => pair.split(',').map(name => name.trim().toLowerCase()));
 
     assignUsers(namesArray, exclusionsArray);
     res.send(`
