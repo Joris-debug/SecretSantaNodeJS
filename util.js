@@ -1,9 +1,9 @@
 const { db, addUser, clearDatabase } = require('./database');
 
-function assignUsers(namesArray) {
+function assignUsers(namesArray, exclusionsArray) {
     let n = namesArray.length
     let assignArray = createArray(n)
-    shuffleArray(assignArray)
+    shuffleArray(array, namesArray, exclusionsArray)
 
     clearDatabase((err) => {
         if (err) {
